@@ -24,30 +24,9 @@ export class DashboardComponent {
     this.http.get<any>('https://api.spotify.com/v1/me/top/tracks?limit=10', { headers })
     .subscribe(Response => {
       this.topTracks = Response.items;
-      console.log(this.topTracks[0])
+      console.log(this.topTracks.map(t => ({ name: t.name, preview: t.preview_url })));
+
     })
   }
 
-  currentPreview: HTMLAudioElement | null = null;
-
-  playPreview(url: string): void {
-    if (this.currentPreview) {
-      this.currentPreview.pause();
-      this.currentPreview = null;
-    }
-    
-    if (url) {
-      const audio = new Audio(url);
-      audio.play();
-      this.currentPreview = audio;
-    }
-    
-  }
-
-  stopPreview(): void {
-    if (this.currentPreview) {
-      this.currentPreview.pause();
-      this.currentPreview = null;
-    }
-  }
 }
