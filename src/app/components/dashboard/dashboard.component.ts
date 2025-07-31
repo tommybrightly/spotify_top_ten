@@ -15,6 +15,7 @@ export class DashboardComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
+    console.log('dashboard loaded')
     const token = localStorage.getItem('spotify_token');
     if (!token) return;
 
