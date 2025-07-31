@@ -2,7 +2,12 @@
 
 <ul *ngIf="topTracks.length">
     <li *ngFor="let track of topTracks">
-        <img src="track.album.images[2]?.url" alt="Album Art" width="50">
+        <img 
+            *ngIf="track.album.images.length > 0"
+            [src]="track.album.images[1]?.url || track.album.images[0]?.url"
+            [alt]="'Album Art'" 
+            width="50"
+            height="60">
         <strong>{{ track.name }}</strong> by {{ track.artists[0]?.name }}
     </li>
 </ul>

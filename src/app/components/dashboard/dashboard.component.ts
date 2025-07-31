@@ -16,15 +16,15 @@ export class DashboardComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    console.log('dashboard loaded')
     const token = localStorage.getItem('spotify_token');
     if (!token) return;
-
+    
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
+    
     this.http.get<any>('https://api.spotify.com/v1/me/top/tracks?limit=10', { headers })
     .subscribe(Response => {
       this.topTracks = Response.items;
+      console.log(this.topTracks[0])
     })
   }
 
