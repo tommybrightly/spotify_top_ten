@@ -25,7 +25,7 @@ export class CallbackComponent {
 
       if (code && codeVerifier) {
         const body = new HttpParams()
-          .set('client_id', 'YOUR_SPOTIFY_CLIENT_ID')
+          .set('client_id', 'd4b8752877074280878b546b73b070d0')
           .set('grant_type', 'authorization_code')
           .set('code', code)
           .set('redirect_uri', 'http://127.0.0.1:4200/callback')
