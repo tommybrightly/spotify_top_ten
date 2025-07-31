@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { catchError, retry } from 'rxjs';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -33,7 +35,16 @@ export class CallbackComponent {
 
         this.http.post<any>('https://accounts.spotify.com/api/token', body.toString(), {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        }).subscribe(res => {
+        })
+        .pipe(
+          retry(3), //retry if spotify server error
+          catchError(err => {
+            alert('Spotify is unavailable. Please try again later.');
+            console.error('Token request failed:', err);
+            return throwError(() => err);
+          })
+        )
+        .subscribe(res => {
           localStorage.setItem('spotify_token', res.access_token);
           this.router.navigate(['/dashboard']);
         });
