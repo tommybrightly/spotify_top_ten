@@ -28,4 +28,26 @@ export class DashboardComponent {
     })
   }
 
+  currentPreview: HTMLAudioElement | null = null;
+
+  playPreview(url: string): void {
+    if (this.currentPreview) {
+      this.currentPreview.pause();
+      this.currentPreview = null;
+    }
+    
+    if (url) {
+      const audio = new Audio(url);
+      audio.play();
+      this.currentPreview = audio;
+    }
+    
+  }
+
+  stopPreview(): void {
+    if (this.currentPreview) {
+      this.currentPreview.pause();
+      this.currentPreview = null;
+    }
+  }
 }
