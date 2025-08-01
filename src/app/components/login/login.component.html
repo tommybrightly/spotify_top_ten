@@ -1,4 +1,13 @@
-<div class="login-container">
-  <h1>View Your Top 10 Most Played Songs</h1>
-  <button (click)="login()">Log in with Spotify</button>
+<div class="min-h-screen flex items-center justify-center bg-gray-900">
+  <div class="bg-white p-10 rounded-lg shadow-lg max-w-sm w-full text-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Welcome to Spotify Top Ten</h1>
+    <p class="text-gray-600 mb-6">Login with Spotify to see your most played tracks</p>
+    
+    <button 
+      (click)="login()"
+      class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300"
+    >
+      🎵 Login with Spotify
+    </button>
+  </div>
 </div>
