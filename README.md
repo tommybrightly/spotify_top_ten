@@ -1,27 +1,91 @@
-# SpotifyTopTen
+# 🎧 Spotify Top 10
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+A modern Angular app that authenticates users via Spotify and displays their top 10 most played tracks, complete with album art and preview buttons.
 
-## Development server
+> Built to showcase full-stack knowledge, API integration, authentication flow with PKCE, and responsive Tailwind styling. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🔥 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🔐 OAuth 2.0 Authorization Code Flow with PKCE (Spotify-recommended)
+- 🎵 Displays user’s top 10 most played songs
+- 🖼 Album art and artist name shown for each track
+- 🌙 Fully responsive design using Tailwind CSS
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Demo
 
-## Running unit tests
+![App Screenshot](insert-screenshot-link-here)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> (You can add a GIF using [LICEcap](https://www.cockos.com/licecap/) or a screen capture tool)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠 Tech Stack
 
-## Further help
+- [Angular 17](https://angular.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
+- TypeScript
+- RxJS
+- Github
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 📦 Installation
+
+1. **Clone the repo**
+
+```bash
+git clone https://github.com/yourusername/spotify_top_ten.git
+cd spotify_top_ten
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Set up your environment variables**
+
+Create a file named `.env` in the root and add:
+
+```bash
+SPOTIFY_CLIENT_ID=your_spotify_client_id
+REDIRECT_URI=http://127.0.0.1:4200/callback
+```
+
+(If you're not using `.env`, modify `environment.ts` directly.)
+
+4. **Run the app**
+
+```bash
+ng serve --host http://127.0.0.1:4200
+```
+
+Then visit `http://127.0.0.1:4200`
+
+---
+
+## 📝 Notes - IMPORTANT
+
+- You must register yourself as a developer with Spotify: https://developer.spotify.com/dashboard/applications
+- Add `http://127.0.0.1:4200/callback` to your app’s allowed redirect URIs
+- Add your email to the allowed users section of User Management
+
+
+---
+
+## 🧠 What I Learned
+
+- How to implement PKCE securely in a frontend-only SPA
+- Using Angular standalone components and routing
+- Styling with Tailwind for responsive, fast design
+- Parsing and displaying real-time API data
+- Managing state across OAuth redirects using localStorage
+- Practiced professional version control with Git and GitHub, including branching strategies, pull requests, and merge conflict resolution
+
+
