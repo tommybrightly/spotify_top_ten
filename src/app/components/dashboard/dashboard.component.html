@@ -1,15 +1,24 @@
-<h2>Your Top 10 Tracks</h2>
+<div class="min-h-screen bg-gray-900 text-white px-6 py-10">
+<div class="max-w-2xl mx-auto p-6">
+  <h2 class="text-3xl font-bold mb-6 text-center text-green-600">Your Top 10 Tracks</h2>
 
-<ul *ngIf="topTracks.length">
-    <li *ngFor="let track of topTracks">
-        <img 
-            *ngIf="track.album.images.length > 0"
-            [src]="track.album.images[1]?.url || track.album.images[0]?.url"
-            [alt]="'Album Art'" 
-            width="50"
-            height="60">
-        <strong>{{ track.name }}</strong> by {{ track.artists[0]?.name }}
-    </li>
-</ul>
+  <ul *ngIf="topTracks.length" class="space-y-6">
+    <li *ngFor="let track of topTracks" class="flex items-center gap-4 border-b pb-4">
+      <img 
+        [src]="track.album.images[1]?.url || track.album.images[0]?.url"
+        [alt]="track.name"
+        class="w-16 h-16 rounded shadow"
+      />
 
-<p *ngIf="!topTracks.length">Loading your top 10 tracks...</p>
+      <div class="flex-grow">
+        <p class="font-semibold text-lg">{{ track.name }}</p>
+        <p class="text-gray-500 text-sm">by {{ track.artists[0]?.name }}</p>
+      </div>
+  </ul>
+
+  <p *ngIf="!topTracks.length" class="text-gray-500 italic text-center">
+    Loading your top 10 tracks...
+  </p>
+</div>
+</div>
+

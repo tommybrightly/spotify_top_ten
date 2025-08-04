@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { PkceService } from './pkce.service';
+import { environment } from '../../environments/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyAuthService {
 
-  private clientId = 'd4b8752877074280878b546b73b070d0';
+  private clientId = environment.spotifyClientId;
   private redirectUri = 'http://127.0.0.1:4200/callback';
   private scopes = ['user-top-read', 'user-read-email', 'user-read-private'];
   
