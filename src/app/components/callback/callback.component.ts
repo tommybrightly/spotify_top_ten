@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, retry } from 'rxjs';
 import { throwError } from 'rxjs';
+import { environment } from '../../../environments/environment/environment';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class CallbackComponent {
 
       if (code && codeVerifier) {
         const body = new HttpParams()
-          .set('client_id', 'd4b8752877074280878b546b73b070d0')
+          .set('client_id', environment.spotifyClientId)
           .set('grant_type', 'authorization_code')
           .set('code', code)
           .set('redirect_uri', 'http://127.0.0.1:4200/callback')
