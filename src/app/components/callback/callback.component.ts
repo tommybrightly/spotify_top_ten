@@ -31,7 +31,7 @@ export class CallbackComponent {
           .set('client_id', environment.spotifyClientId)
           .set('grant_type', 'authorization_code')
           .set('code', code)
-          .set('redirect_uri', 'http://127.0.0.1:4200/callback')
+          .set('redirect_uri', environment.redirectUri)
           .set('code_verifier', codeVerifier);
 
         this.http.post<any>('https://accounts.spotify.com/api/token', body.toString(), {
