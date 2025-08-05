@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,10 @@ export class DashboardComponent {
 
   topTracks: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const token = localStorage.getItem('spotify_token');
@@ -27,6 +31,12 @@ export class DashboardComponent {
       console.log(this.topTracks.map(t => ({ name: t.name, preview: t.preview_url })));
 
     })
+  }
+
+  logout(): void {
+  localStorage.removeItem('spotify_token');
+  localStorage.removeItem('spotify_code_verifier');
+  this.router.navigate(['/login']);
   }
 
 }

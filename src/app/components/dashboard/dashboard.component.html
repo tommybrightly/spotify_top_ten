@@ -18,6 +18,14 @@
     </li>
   </ul>
 
+  <div class="mt-12 text-center">
+  <button 
+    (click)="logout()"
+    class="bg-[#1DB954] hover:bg-[#1ed760] text-gray-800 font-semibold py-2 px-4 rounded">
+    🔄 Switch User
+  </button>
+  </div>
+
   <p *ngIf="!topTracks.length" class="text-gray-400 text-center mt-8">
     Loading your top 10 tracks...
   </p>
