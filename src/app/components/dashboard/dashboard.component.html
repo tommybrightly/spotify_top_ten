@@ -1,24 +1,24 @@
-<div class="min-h-screen bg-gray-900 text-white px-6 py-10">
-<div class="max-w-2xl mx-auto p-6">
-  <h2 class="text-3xl font-bold mb-6 text-center text-green-600">Your Top 10 Tracks</h2>
+<div class="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
+  <h2 class="text-3xl font-bold mb-8 text-center text-[#1DB954]">Your Top 10 Tracks</h2>
 
-  <ul *ngIf="topTracks.length" class="space-y-6">
-    <li *ngFor="let track of topTracks" class="flex items-center gap-4 border-b pb-4">
+  <ul class="w-full max-w-2xl space-y-4">
+    <li *ngFor="let track of topTracks; index as i" class="flex items-center p-4 bg-gray-800 rounded-xl shadow">
+      <span class="text-xl font-bold text-gray-300 w-6">{{ i + 1 }}.</span>
       <img 
+        *ngIf="track.album.images.length > 0"
         [src]="track.album.images[1]?.url || track.album.images[0]?.url"
         [alt]="track.name"
-        class="w-16 h-16 rounded shadow"
-      />
-
-      <div class="flex-grow">
-        <p class="font-semibold text-lg">{{ track.name }}</p>
-        <p class="text-gray-500 text-sm">by {{ track.artists[0]?.name }}</p>
+        width="60"
+        height="60"
+        class="rounded ml-4 mr-6">
+      <div>
+        <div class="font-semibold text-lg">{{ track.name }}</div>
+        <div class="text-sm text-gray-400">by {{ track.artists[0]?.name }}</div>
       </div>
+    </li>
   </ul>
 
-  <p *ngIf="!topTracks.length" class="text-gray-500 italic text-center">
+  <p *ngIf="!topTracks.length" class="text-gray-400 text-center mt-8">
     Loading your top 10 tracks...
   </p>
 </div>
-</div>
-
