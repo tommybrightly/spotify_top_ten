@@ -4,6 +4,8 @@ A modern Angular app that authenticates users via Spotify and displays their top
 
 > Built to showcase full-stack knowledge, API integration, authentication flow with PKCE, and responsive Tailwind styling. 
 
+⚠️ NOTE: Due to Spotify's production requirements which don't allow small developers to have public facing apps using their API, this app is intended to be run locally using your own Spotify Developer credentials. See setup instructions below.
+
 ---
 
 ## 🔥 Features
@@ -49,16 +51,16 @@ cd spotify_top_ten
 npm install
 ```
 
-3. **Set up your environment variables**
+3. **Set up your spotify developer account**
 
-Create a file named `.env` in the root and add:
+Set up a spotify developer account at developer.spotify.com.
+Create a new project and copy the clientID that is generated.
 
-```bash
+Add your email to the allowed users section of User Management.
+
+In the environment.ts file change:
 SPOTIFY_CLIENT_ID=your_spotify_client_id
-REDIRECT_URI=http://127.0.0.1:4200/callback
-```
 
-(If you're not using `.env`, modify `environment.ts` directly.)
 
 4. **Run the app**
 
