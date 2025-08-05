@@ -19,7 +19,7 @@ A modern Angular app that authenticates users via Spotify and displays their top
 
 ## 🚀 Demo
 
-![App Demo](./assets/demo.gif)
+![App Demo](./assets/demo-spotify-top-ten.gif)
 
 ---
 
