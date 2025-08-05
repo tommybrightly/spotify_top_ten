@@ -19,9 +19,7 @@ A modern Angular app that authenticates users via Spotify and displays their top
 
 ## 🚀 Demo
 
-![App Screenshot](insert-screenshot-link-here)
-
-> (You can add a GIF using [LICEcap](https://www.cockos.com/licecap/) or a screen capture tool)
+![App Demo](./assets/demo.gif)
 
 ---
 
